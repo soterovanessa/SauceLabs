@@ -1,16 +1,18 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { username, password, username_fail, password_fail } from "../dados";
+import { selectorsList } from "../commands";
 
 Given("que estou na página de login", () => {
   cy.visit("/");
 });
 
 When("eu insiro um usuário válido", () => {
-  cy.get('[data-test="username"]').type("standard_user");
+  cy.get(selectorsList.loginUsername).type(username);
 });
 
 When("eu insiro a senha correta", () => {
-  cy.get('[data-test="password"]').type("secret_sauce");
-  cy.get('[data-test="login-button"]').click();
+  cy.get(selectorsList.loginPassword).type(password);
+  cy.get(selectorsList.buttonSubmit).click();
 });
 
 Then("devo ser redirecionado para a página de produtos", () => {
@@ -18,12 +20,12 @@ Then("devo ser redirecionado para a página de produtos", () => {
 });
 
 When("eu insiro um usuário inválido", () => {
-  cy.get('[data-test="username"]').type("invalid_user");
+  cy.get(selectorsList.loginUsername).type(username_fail);
 });
 
 When("eu insiro uma senha qualquer", () => {
-  cy.get('[data-test="password"]').type("wrong_password");
-  cy.get('[data-test="login-button"]').click();
+  cy.get(selectorsList.loginPassword).type(password_fail);
+  cy.get(selectorsList.buttonSubmit).click();
 });
 
 Then("devo ver uma mensagem de erro", () => {
