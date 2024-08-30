@@ -5,7 +5,7 @@ const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esb
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: "https://www.saucedemo.com/",
+    baseUrl: "https://www.saucedemo.com",
     specPattern: "cypress/e2e/features/**/*.feature",
     stepDefinitions: "cypress/support/step_definitions/",
     setupNodeEvents(on, config) {

@@ -14,9 +14,11 @@
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
     "cypress": "^13.14.1"
   },
-"cypress-cucumber-preprocessor": {
+  "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/support/step_definitions/",
     "nonGlobalStepDefinitions": false
+  },
+  "dependencies": {
+    "chance": "^1.1.12"
   }
-  
 }
